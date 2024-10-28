@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Recibo de Saída</title>
+</head>
+<body>
+    <h1>Recibo de Saída</h1>
+    <p><strong>Placa:</strong> {{ placa }}</p>
+    <p><strong>Data e Hora de Entrada:</strong> {{ entrada.strftime('%d/%m/%Y %H:%M:%S') }}</p>
+    <p><strong>Data e Hora de Saída:</strong> {{ saida.strftime('%d/%m/%Y %H:%M:%S') }}</p>
+    <p><strong>Custo Total:</strong> R$ {{ custo }}</p>
+    <p><strong>Vaga Alocada:</strong> {{ vaga_id }}</p> <!-- Exibindo a vaga -->
+    <a href="{{ url_for('index') }}">Voltar para o início</a>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Saída de Veículo</title>
+</head>
+<body>
+    <h1>Saída de Veículo</h1>
+    <form action="{{ url_for('saida') }}" method="POST">
+        <label for="vaga_id">Selecione o veículo que está saindo:</label>
+            <select name="vaga_id" id="vaga_id" required>
+                <option value="">--Selecione--</option>
+                {% for i in range(total_vagas) %}
+                    {% if vagas[i] is not none %}
+                        <option value="{{ i }}">{{ vagas[i]['placa'] }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+        <button type="submit">Confirmar Saída</button>
+    </form>
+    <a href="{{ url_for('index') }}">Voltar</a>
+</body>
+</html>

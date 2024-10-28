@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirmar Saída</title>
+</head>
+<body>
+    <h1>Confirmar Saída</h1>
+    <p>Você realmente deseja remover o veículo com placa {{ veiculo['placa'] }}?</p>
+    <form action="{{ url_for('confirmar_saida', vaga_id=vaga_id) }}" method="POST">
+        <button type="submit">Sim, remover</button>
+        <a href="{{ url_for('saida') }}">Cancelar</a>
+    </form>
+</body>
+</html>

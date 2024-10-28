@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Relatórios</title>
+</head>
+<body>
+    <h1>Relatórios do Estacionamento</h1>
+    <p><strong>Ocupação Média:</strong> {{ ocupacao_media }}%</p>
+    <p><strong>Receita Total:</strong> R$ {{ receita_total }}</p>
+    <p><strong>Horário de Pico:</strong> {{ horario_pico }}h</p>
+    <p><strong>Total de Entradas:</strong> {{ total_entradas }}</p>
+    <p><strong>Total de Saídas:</strong> {{ total_saidas }}</p>
+    <a href="{{ url_for('index') }}">Voltar para o início</a>
+</body>
+</html>

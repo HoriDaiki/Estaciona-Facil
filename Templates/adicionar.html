@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Adicionar Veículo</title>
+</head>
+<body>
+    <h1>Adicionar Veículo</h1>
+    {% if mensagem %}
+        <p style="color:red;">{{ mensagem }}</p>
+    {% endif %}
+    <form method="POST">
+        <label for="placa">Placa:</label>
+        <input type="text" name="placa" required>
+        
+        <label for="tipo_veiculo">Tipo de Veículo:</label>
+        <select name="tipo_veiculo" required>
+            <option value="acessibilidade">Acessibilidade</option>
+            <option value="normal">Carro Normal</option>
+            <option value="grande">Carro Grande (SUV/Caminhonete)</option>
+        </select>
+        
+        <button type="submit">Adicionar</button>
+    </form>
+
+    <h2>Vagas Disponíveis</h2>
+    <ul>
+        {% for i in range(total_vagas) %}
+            <li>Vaga {{ i }}: {{ vagas[i] is not none and vagas[i].placa or 'Vaga Livre' }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
