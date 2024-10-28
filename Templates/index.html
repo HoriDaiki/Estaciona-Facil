@@ -9,57 +9,53 @@
 </head>
 <body>
     <header>
-        
-    <nav class="navbar bg-body-tertiary">
-        <div class="container-fluid">
-          <a href="" class="logo navbar-brand fs-3 text-danger">Estaciona Fácil</a>
-          <a class="btn btn-danger" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
-            Menu
-          </a>
-          <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-            <div class="offcanvas-header">
-              <h5 class="logo offcanvas-title text-danger" id="offcanvasExampleLabel">Estaciona Fácil</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-              <div>
+      <nav class="navbar bg-body-tertiary">
+          <div class="container-fluid">
+            <a href="" class="logo navbar-brand fs-3 text-danger">Estaciona Fácil</a>
+            <a class="btn btn-danger" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+              Menu
+            </a>
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+              <div class="offcanvas-header">
+                <h5 class="logo offcanvas-title text-danger" id="offcanvasExampleLabel">Estaciona Fácil</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
               </div>
+              <div class="offcanvas-body">
+                <div>
+                </div>
 
-              <div class="estacionar">
-                <a href="{{ url_for('adicionar') }}">
-                  <button class="btn btn-light mt-3"> Quero Estacionar </button>
-                </a>
-              </div>
+                <div class="estacionar">
+                  <a href="{{ url_for('adicionar') }}">
+                    <button class="btn btn-light mt-3"> Quero Estacionar </button>
+                  </a>
+                </div>
 
-              <div class="estacionar">
-                <a href="{{ url_for('saida') }}">
-                  <button class="btn btn-light mt-3"> Estou saindo </button>
-                </a>
-              </div>
+                <div class="estacionar">
+                  <a href="{{ url_for('saida') }}">
+                    <button class="btn btn-light mt-3"> Estou saindo </button>
+                  </a>
+                </div>
 
-              <div class="estacionar">
-                <a href="{{ url_for('login') }}">
-                  <button class="btn btn-light mt-3"> Sou funcionário </button>
-                </a>
-              </div>
+                <div class="estacionar">
+                  <a href="{{ url_for('login') }}">
+                    <button class="btn btn-light mt-3"> Sou funcionário </button>
+                  </a>
+                </div>
 
-
-
-
-              <div class="dropdown mt-3">
-                <button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown">
-                  Contatos
-                </button>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">WhatsApp</a></li>
-                  <li><a class="dropdown-item" href="#">Telefone</a></li>
-                  <li><a class="dropdown-item" href="#">E-mail</a></li>
-                </ul>
+                <div class="dropdown mt-3">
+                  <button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                    Contatos
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">WhatsApp</a></li>
+                    <li><a class="dropdown-item" href="#">Telefone</a></li>
+                    <li><a class="dropdown-item" href="#">E-mail</a></li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </nav>
+        </nav>
     </header>
 
     <main class="mt-5">
@@ -106,7 +102,6 @@
       <nav class="navbar bg-body-tertiary">
         <div class="container">
             <p>&copy; 2024 Estaciona Fácil. Todos os direitos reservados.</p>
-            <a href="contato.html" class="text-white">Contato</a>
         </div>
       </nav>
     </footer>

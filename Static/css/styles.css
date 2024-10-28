@@ -27,6 +27,12 @@ h1{
     font-style: normal;
 }
 
+h2{
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
 p{
     font-family: "Poppins", sans-serif;
     font-weight: 500;
@@ -38,4 +44,27 @@ p{
     font-family: "Poppins", sans-serif;
     font-weight: 300;
     font-style: normal;
+}
+
+.formSaida{
+    display:flex;
+    flex-direction: column;
+}
+
+a{
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.formLogin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+footer{
+    bottom:0px;
+    position:relative;
 }
