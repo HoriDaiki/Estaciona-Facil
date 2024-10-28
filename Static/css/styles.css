@@ -68,3 +68,8 @@ footer{
     bottom:0px;
     position:relative;
 }
+
+.img1{
+    background-image: url("https://br.freepik.com/fotos-gratis/conceito-de-transporte-de-veiculos-estacionados_13951921.htm#fromView=search&page=1&position=1&uuid=6f2089f0-b1ec-42a8-9f4a-c9c862afa305");
+    width: 100vw;
+}
