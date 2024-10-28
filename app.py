@@ -5,9 +5,9 @@ import numpy as np
 app = Flask(__name__)
 
 TOTAL_VAGAS = 10
-vagas = [None] * TOTAL_VAGAS  # Inicializa as vagas como vazias
-historico = []  # Para armazenar o histórico de saídas
-TARIFA_FIXA = 10.00  # Tarifa fixa por hora
+vagas = [None] * TOTAL_VAGAS 
+historico = []
+TARIFA_FIXA = 10.00
 
 @app.route('/')
 def index():
@@ -49,7 +49,7 @@ def alocar_vaga(tipo_veiculo):
         for vaga_id in range(7, 11):  # Vagas 7, 8, 9, 10
             if vagas[vaga_id] is None:
                 return vaga_id
-    return None  # Se nenhuma vaga disponível
+    return None
 
 
 @app.route('/saida', methods=['GET', 'POST'])
@@ -60,14 +60,14 @@ def saida():
             if vagas[vaga_id] is not None:
                 return redirect(url_for('remover', vaga_id=vaga_id))
             else:
-                print(f"A vaga {vaga_id} está vazia!")  # Mensagem de depuração
+                print(f"A vaga {vaga_id} está vazia!")
                 return redirect(url_for('index'))
     
     return render_template('saida.html', total_vagas=TOTAL_VAGAS, vagas=vagas)
 
 @app.route('/remover/<int:vaga_id>')
 def remover(vaga_id):
-    print(f"Tentando remover a vaga: {vaga_id}")  # Mensagem de depuração
+    print(f"Tentando remover a vaga: {vaga_id}")
 
     if vaga_id < 0 or vaga_id >= TOTAL_VAGAS:
         return redirect(url_for('index'))
@@ -78,15 +78,12 @@ def remover(vaga_id):
         print(f"A vaga {vaga_id} está vazia. Não é possível remover.")  # Mensagem de depuração
         return redirect(url_for('index'))
     
-    # Calcula o tempo e custo
     saida = datetime.datetime.now()
     tempo_estacionado = saida - veiculo['entrada']
     
-    # Cálculo do custo
     horas_estacionadas = tempo_estacionado.total_seconds() / 3600
     custo = max(TARIFA_FIXA, horas_estacionadas * TARIFA_FIXA)
     
-    # Adiciona o registro ao histórico
     historico.append({
         'placa': veiculo['placa'],
         'entrada': veiculo['entrada'],
@@ -94,13 +91,10 @@ def remover(vaga_id):
         'custo': custo
     })
     
-     # Atualiza os dados
     atualizar_dados(historico[-1])
 
-    # Libera a vaga
     vagas[vaga_id] = None  
     
-   # Redireciona para o recibo com os parâmetros necessários
     return redirect(url_for('recibo', placa=veiculo['placa'], entrada=veiculo['entrada'].isoformat(), saida=saida.isoformat(), custo=custo, vaga_id=vaga_id))
 
 @app.route('/recibo')
@@ -109,17 +103,15 @@ def recibo():
     entrada = request.args.get('entrada')
     saida = request.args.get('saida')
     custo = request.args.get('custo', type=float)
-    vaga_id = request.args.get('vaga_id', type=int)  # Obtendo a vaga
+    vaga_id = request.args.get('vaga_id', type=int)
 
     return render_template('recibo.html', placa=placa, entrada=datetime.datetime.fromisoformat(entrada), saida=datetime.datetime.fromisoformat(saida), custo=custo, vaga_id=vaga_id)
 
 
 @app.route('/relatorios')
 def relatorios():
-    # Calcular ocupação média
     ocupacao_media = np.mean([1 for vaga in vagas if vaga is not None]) / TOTAL_VAGAS * 100
     
-    # Horário de pico (exemplo simplificado)
     horarios = [veiculo['entrada'].hour for veiculo in historico if veiculo['saida'] is None]
     horario_pico = max(set(horarios), key=horarios.count) if horarios else None
     
@@ -130,13 +122,10 @@ def relatorios():
                            total_entradas=total_entradas,
                            total_saidas=total_saidas)
 
-
-# Inicializa variáveis para cálculos
 total_entradas = 0
 total_saidas = 0
 receita_total = 0.0
 
-# Atualizar as funções para contar entradas, saídas e receita
 def atualizar_dados(entrada):
     global total_entradas, total_saidas, receita_total
     total_entradas += 1
@@ -148,7 +137,7 @@ def atualizar_dados(entrada):
 def login():
     if request.method == 'POST':
         senha = request.form['senha']
-        if senha == 'admin': # Altere para a senha desejada
+        if senha == 'admin':
             return redirect(url_for('relatorios'))
         else:
             return render_template('login.html', erro="Senha incorreta!")
