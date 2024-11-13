@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for
 import datetime
 import numpy as np
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="Templates")
 
 TOTAL_VAGAS = 10
 vagas = [None] * TOTAL_VAGAS 
